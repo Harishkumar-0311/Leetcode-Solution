@@ -10,7 +10,7 @@ class Solution {
             }
 
         }
-        print(matrix);
+        
         System.out.println("Reverse");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n / 2; j++) {
@@ -21,16 +21,7 @@ class Solution {
             }
 
         }
-        print(matrix);
+        
     }
-        static void print (int[][] matrix){
-            int n=matrix.length;
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    System.out.println(matrix[i][j] + " ");
-
-                }
-                System.out.println("");
-            }
-        }
+        
     }
