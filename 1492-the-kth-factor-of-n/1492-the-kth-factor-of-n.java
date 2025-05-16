@@ -1,21 +1,17 @@
 class Solution {
     public int kthFactor(int n, int k) {
-       int[]ans=new int[k+1];
-       int index=0;
-       for(int i=1;i<n+1;i++){
-        if(n%i==0){
-            ans[index]=i;
-            index++;
+       if(k == 1)
+            return 1;
+
+        int count = 1;
+        for(int i = 2; i <= n; i++){
+            if(n % i == 0){
+                count++;
+                if(count == k)
+                    return i;
+            }
         }
-        if(index>k){
-            break;
-        }
-       
-    }
-      if(ans[k-1]==0){
+
         return -1;
-      }else{
-        return ans[k-1];
-      }
     }
 }
