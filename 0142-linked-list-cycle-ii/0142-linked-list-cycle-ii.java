@@ -10,60 +10,24 @@
  * }
  */
 public class Solution {
-        public int lengthCycle(ListNode head) {
-        ListNode fast = head;
-        ListNode slow = head;
-
-        while (fast != null && fast.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-            if (fast == slow) {
-                ListNode temp = slow;
-                int length = 0;
-                do {
-                    temp = temp.next;
-                    length++;
-                } while (temp != slow);
-                return length;
-            }
-        }
-        return 0;
-    }
-
-    // https://leetcode.com/problems/linked-list-cycle-ii/
-    public ListNode detectCycle(ListNode head) {
-        int length = 0;
-
-        ListNode fast = head;
-        ListNode slow = head;
-
-        while (fast != null && fast.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-            if (fast == slow) {
-                length = lengthCycle(slow);
+       public ListNode detectCycle(ListNode head) {
+        ListNode slow=head;
+        ListNode fast=head;
+        while(fast!=null && fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
                 break;
             }
         }
-
-        if (length == 0) {
+        if(fast==null|| fast.next==null){
             return null;
         }
-
-        // find the start node
-        ListNode f = head;
-        ListNode s = head;
-
-        while (length > 0) {
-            s = s.next;
-            length--;
+        fast=head;
+        while(slow!=fast){
+        slow=slow.next;
+        fast=fast.next;
         }
-
-        // keep moving both forward and they will meet at cycle start
-        while (f != s) {
-            f = f.next;
-            s = s.next;
-        }
-        return s;
+       return fast;
     }
  }
