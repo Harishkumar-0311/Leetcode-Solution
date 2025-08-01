@@ -9,6 +9,6 @@ class Solution {
         start++;
         end--;
        }
-       System.out.print(s);
+ 
 }
 }
